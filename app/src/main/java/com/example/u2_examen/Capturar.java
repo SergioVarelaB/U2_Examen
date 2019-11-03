@@ -18,7 +18,7 @@ public class Capturar extends AppCompatActivity {
         ivImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.seleccionar_activity);
+                startActivity(new Intent(getApplicationContext(),Seleccion.class));
             }
         });
     }

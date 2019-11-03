@@ -4,20 +4,23 @@ public class Restaurant_class{
     private int imagen;
     private String nombre;
     private String descripcion;
-    private String DirYTel;
+    private String dirYTel;
 
     public Restaurant_class(){
         imagen = R.drawable.a1;
         nombre = "Golden bridge";
         descripcion = "El infierno";
-        DirYTel = "Simon Bolivar, 5501010";
+        dirYTel = "Calle Degollado, 5750229";
     }
+
     public Restaurant_class(int imagen, String nombre, String descripcion, String dirYTel) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.DirYTel = dirYTel;
+        this.dirYTel = dirYTel;
     }
+
+
     public int getImagen() {
         return imagen;
     }
@@ -43,11 +46,11 @@ public class Restaurant_class{
     }
 
     public String getDirYTel() {
-        return DirYTel;
+        return dirYTel;
     }
 
     public void setDirYTel(String dirYTel) {
-        DirYTel = dirYTel;
+        dirYTel = dirYTel;
     }
 }
 
