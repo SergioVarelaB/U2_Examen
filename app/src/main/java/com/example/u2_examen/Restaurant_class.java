@@ -12,14 +12,12 @@ public class Restaurant_class{
         descripcion = "El infierno";
         DirYTel = "Simon Bolivar, 5501010";
     }
-
     public Restaurant_class(int imagen, String nombre, String descripcion, String dirYTel) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.DirYTel = dirYTel;
     }
-
     public int getImagen() {
         return imagen;
     }
