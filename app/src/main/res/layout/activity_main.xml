@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="257dp"
         android:layout_height="62dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:text="Plataforma I"
@@ -25,6 +27,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="EXAMEN PRÁCTICO"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -38,6 +41,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="2DA EVALUACIÓN PARCIAL"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -51,6 +55,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="SERGIO ALBERTO VARELA BENCOMO"
         android:textColor="#020000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,6 +68,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="DAVID SERVANDO TORRES ORTEGA"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,52 +81,60 @@
         android:id="@+id/ivResLay"
         android:layout_width="344dp"
         android:layout_height="206dp"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/a1" />
 
-    <Button
-        android:id="@+id/btnCapturar"
-        android:layout_width="118dp"
-        android:layout_height="216dp"
-        android:layout_marginStart="4dp"
-        android:background="@android:color/holo_purple"
-        android:text="CAPTURAR"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:gravity="center|center_horizontal"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnMostrar"
-        android:layout_width="118dp"
-        android:layout_height="216dp"
-        android:background="@android:color/holo_red_dark"
-        android:text="MOSTRAR"
-        android:textColor="#FAF6F6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        <Button
+            android:id="@+id/btnCapturar"
+            android:layout_width="102dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="4dp"
+            android:background="@android:color/holo_purple"
+            android:text="CAPTURAR"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.935" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="118dp"
-        android:layout_height="216dp"
-        android:background="@android:color/holo_blue_dark"
-        android:text="SALIR"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.901"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnMostrar"
+            android:layout_width="107dp"
+            android:layout_height="162dp"
+            android:background="@android:color/holo_red_dark"
+            android:text="MOSTRAR"
+            android:textColor="#FAF6F6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.936" />
+
+        <Button
+            android:id="@+id/btnSalir"
+            android:layout_width="107dp"
+            android:layout_height="162dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="SALIR"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.936" />
+    </LinearLayout>
+
+</LinearLayout>
