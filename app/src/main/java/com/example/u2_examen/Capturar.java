@@ -85,6 +85,7 @@ public class Capturar extends AppCompatActivity {
         bundle.putString("dirYtel",etDirYTel.getText().toString());
         bundle.putInt("estrellas",3);
         bundle.putInt("imagen",imagenMandar);
+        bundle.putInt("bandera",2);
         inDatos.putExtras(bundle);
         startActivity(inDatos);
     }

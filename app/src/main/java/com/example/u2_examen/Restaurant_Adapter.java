@@ -60,7 +60,8 @@ public class Restaurant_Adapter extends ArrayAdapter<Restaurant_class> {
         txtNombre.setText(restaurantes[position].getNombre());
         txtDesc.setText(restaurantes[position].getDescripcion());
         textDirYTel.setText(restaurantes[position].getDirYTel());
-        Toast.makeText(getContext(),restaurantes[position].getEstrellas()+"",Toast.LENGTH_LONG).show();
+        estrellas.setText(restaurantes[position].getEstrellas()+"");
+        //Toast.makeText(getContext(),restaurantes[position].getEstrellas()+"",Toast.LENGTH_LONG).show();
 
         return convertView;
     }

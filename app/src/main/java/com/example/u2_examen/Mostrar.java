@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -24,6 +25,7 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
     ListView listaRestaurantes;
     ArrayList<Restaurant_class> resta;
     int imagen = R.drawable.a1;
+    TextView tvCal;
     String nombre = "";
     String descripcion = "";
     String dirYtel = "";
@@ -40,23 +42,28 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
         loadData();
         Bundle bundle = intent.getExtras();
         if(bundle != null){
-            imagen = bundle.getInt("imagen");
-            nombre = bundle.getString("nombre");
-            descripcion = bundle.getString("descripcion");
-            dirYtel = bundle.getString("dirYtel");
-            estrellas = bundle.getInt("estrellas");
-            resta.add(new Restaurant_class(imagen,nombre,descripcion,dirYtel,estrellas));
-            savedData();
-
             bandera = bundle.getInt("bandera");
+            //Toast.makeText(getApplicationContext(),""+bandera,Toast.LENGTH_LONG).show();
+            if(bandera == 2){
+                imagen = bundle.getInt("imagen");
+                nombre = bundle.getString("nombre");
+                descripcion = bundle.getString("descripcion");
+                dirYtel = bundle.getString("dirYtel");
+                estrellas = bundle.getInt("estrellas");
+                resta.add(new Restaurant_class(imagen,nombre,descripcion,dirYtel,estrellas));
+                savedData();
+            }
+
             if (bandera == 1){
                 i = bundle.getInt("img");
                 pos = bundle.getInt("pos");
                 n = bundle.getString("n");
                 d = bundle.getString("d");
+                dyt = bundle.getString("dYt");
                 est = bundle.getInt("est");
                 resta.set(pos, new Restaurant_class(i,n,d,dyt,est));
-                Toast.makeText(getApplicationContext(),"bandera"+ pos+ "\n",Toast.LENGTH_LONG).show();
+                savedData();
+                //Toast.makeText(getApplicationContext(),"bandera"+ pos+ "\n",Toast.LENGTH_LONG).show();
             }
         }
         listaRestaurantes = findViewById(R.id.listaRestaurants);
@@ -94,6 +101,7 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
         bundle.putInt("posicion", i);
         intentoD.putExtras(bundle);
         startActivity(intentoD);
+        //Toast.makeText(getApplicationContext(),""+resta.get(i).getEstrellas(),Toast.LENGTH_SHORT).show();
         finish();
     }
 

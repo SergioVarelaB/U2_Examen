@@ -16,8 +16,8 @@ import static java.lang.Integer.parseInt;
 
 public class Estrellas extends AppCompatActivity {
     ImageView ivE;
-    TextView nE,dE,dYT;
-    int imagen, estrellas, estrellasNuevo, posicion;
+    TextView nE,dE,dYT,tvCal;
+    int imagen, estrellas, estrellasNuevo = 3, posicion;
     EditText edE;
     Button btnGuardar;
     String nombre, descripcion, dirYtel;
