@@ -5,19 +5,22 @@ public class Restaurant_class{
     private String nombre;
     private String descripcion;
     private String dirYTel;
+    private int estrellas;
 
     public Restaurant_class(){
         imagen = R.drawable.a2;
         nombre = "Golden bridge";
         descripcion = "El infierno";
         dirYTel = "Calle Degollado, 5750229";
+        estrellas = 3;
     }
 
-    public Restaurant_class(int imagen, String nombre, String descripcion, String dirYTel) {
+    public Restaurant_class(int imagen, String nombre, String descripcion, String dirYTel, int estrellas) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.dirYTel = dirYTel;
+        this.estrellas = estrellas;
     }
 
     public int getImagen() {
@@ -50,6 +53,14 @@ public class Restaurant_class{
 
     public void setDirYTel(String dirYTel) {
         dirYTel = dirYTel;
+    }
+
+    public int getEstrellas() {
+        return estrellas;
+    }
+
+    public void setEstrellas(int estrellas) {
+        this.estrellas = estrellas;
     }
 }
 

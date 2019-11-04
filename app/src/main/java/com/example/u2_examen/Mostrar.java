@@ -23,12 +23,15 @@ import java.util.ArrayList;
 public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClickListener, Serializable {
     ListView listaRestaurantes;
     ArrayList<Restaurant_class> resta;
-
-    Button Agregar;
     int imagen = R.drawable.a1;
     String nombre = "";
     String descripcion = "";
     String dirYtel = "";
+    int pos;
+    int i, est;
+    String n,d,dyt;
+    int estrellas = 1;
+    int bandera = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +44,20 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
             nombre = bundle.getString("nombre");
             descripcion = bundle.getString("descripcion");
             dirYtel = bundle.getString("dirYtel");
-            resta.add(new Restaurant_class(imagen,nombre,descripcion,dirYtel));
+            estrellas = bundle.getInt("estrellas");
+            resta.add(new Restaurant_class(imagen,nombre,descripcion,dirYtel,estrellas));
             savedData();
+
+            bandera = bundle.getInt("bandera");
+            if (bandera == 1){
+                i = bundle.getInt("img");
+                pos = bundle.getInt("pos");
+                n = bundle.getString("n");
+                d = bundle.getString("d");
+                est = bundle.getInt("est");
+                resta.set(pos, new Restaurant_class(i,n,d,dyt,est));
+                Toast.makeText(getApplicationContext(),"bandera"+ pos+ "\n",Toast.LENGTH_LONG).show();
+            }
         }
         listaRestaurantes = findViewById(R.id.listaRestaurants);
         listaRestaurantes.setAdapter(new Restaurant_Adapter(this, R.layout.res_layout, resta));
@@ -68,9 +83,18 @@ public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClic
             resta = new ArrayList<>();
         }
     }
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Bundle bundle = new Bundle();
+        Intent intentoD = new Intent(getApplicationContext(),Estrellas.class);
+        bundle.putString("nombre",resta.get(i).getNombre());
+        bundle.putString("descripcion",resta.get(i).getDescripcion());
+        bundle.putString("dirYtel",resta.get(i).getDirYTel());
+        bundle.putInt("imagen",resta.get(i).getImagen());
+        bundle.putInt("posicion", i);
+        intentoD.putExtras(bundle);
+        startActivity(intentoD);
         finish();
     }
+
 }

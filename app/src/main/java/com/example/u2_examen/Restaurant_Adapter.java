@@ -35,9 +35,9 @@ public class Restaurant_Adapter extends ArrayAdapter<Restaurant_class> {
         imageView = convertView.findViewById(R.id.ivResLay);
         txtNombre = convertView.findViewById(R.id.txt_nombre);
         txtDesc = convertView.findViewById(R.id.txt_descripcion);
+        estrellas = convertView.findViewById(R.id.tvEst);
         textDirYTel = convertView.findViewById(R.id.txt_dirYtel);
         //estrellas = convertView.findViewById(R.id.txt_dirYtel);
-
         imagen = restaurantes[position].getImagen();
         //Toast.makeText(getContext(),restaurantes[position].getImagen()+"",Toast.LENGTH_LONG).show();
         switch (imagen){
@@ -60,6 +60,7 @@ public class Restaurant_Adapter extends ArrayAdapter<Restaurant_class> {
         txtNombre.setText(restaurantes[position].getNombre());
         txtDesc.setText(restaurantes[position].getDescripcion());
         textDirYTel.setText(restaurantes[position].getDirYTel());
+        Toast.makeText(getContext(),restaurantes[position].getEstrellas()+"",Toast.LENGTH_LONG).show();
 
         return convertView;
     }
