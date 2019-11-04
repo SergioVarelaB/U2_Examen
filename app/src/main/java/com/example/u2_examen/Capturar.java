@@ -41,10 +41,10 @@ public class Capturar extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(etName.getText().toString() != "" && etDescripcion.getText().toString() != "" && etDirYTel.getText().toString() != "" ){
+                if(!etName.getText().toString().isEmpty() && !etDescripcion.getText().toString().isEmpty()&& !etDirYTel.getText().toString().isEmpty() ){
                     agregarRestaurant();
                 }else{
-                    Toast.makeText(getApplicationContext(),"ingrese un dato",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"ingrese todos los datos",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -57,7 +57,7 @@ public class Capturar extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Get String data from Intent
                 String returnString = data.getStringExtra("keyName");
-                imagen = data.getIntExtra("imagen",R.drawable.a1);
+                imagen = data.getIntExtra("imagen",R.drawable.a2);
                 switch(imagen){
                     case(R.drawable.a2):
                         imagenMandar = 1;

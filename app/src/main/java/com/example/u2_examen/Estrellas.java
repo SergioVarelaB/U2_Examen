@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Modifier;
 
@@ -34,7 +35,21 @@ public class Estrellas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 estrellasNuevo = Integer.parseInt(edE.getText().toString());
-                modificar(estrellasNuevo);
+                try {
+                if(edE.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),"ingresa un dato",Toast.LENGTH_LONG).show();
+                }
+                if(estrellasNuevo >= 1 && estrellasNuevo <= 3){
+                    modificar(estrellasNuevo);
+                }else{
+                    Toast.makeText(getApplicationContext(),"que del 1 al 3", Toast.LENGTH_LONG).show();
+                }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),"ingrese datos validos",Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
         dYT = findViewById(R.id.dYE);
@@ -60,8 +75,11 @@ public class Estrellas extends AppCompatActivity {
             case(3):
                 ivE.setImageResource(R.drawable.a4);
                 break;
-            default:
+            case(4):
                 ivE.setImageResource(R.drawable.a5);
+                break;
+            default:
+                ivE.setImageResource(R.drawable.a1);
                 break;
         }
         nE.setText("Nombre :" + nombre);

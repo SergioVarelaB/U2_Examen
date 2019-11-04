@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class Mostrar extends AppCompatActivity implements AdapterView.OnItemClickListener, Serializable {
     ListView listaRestaurantes;
     ArrayList<Restaurant_class> resta;
-    int imagen = R.drawable.a1;
+    int imagen = R.drawable.a2;
     TextView tvCal;
     String nombre = "";
     String descripcion = "";
