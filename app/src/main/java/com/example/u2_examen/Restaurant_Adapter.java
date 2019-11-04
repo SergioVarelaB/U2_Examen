@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-
 public class Restaurant_Adapter extends ArrayAdapter<Restaurant_class> {
     Context context;
     int resource;
@@ -24,6 +24,7 @@ public class Restaurant_Adapter extends ArrayAdapter<Restaurant_class> {
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
         TextView txtNombre, txtDesc, textDirYTel, estrellas;
+        int imagen  =  R.drawable.a1;
 
         if(convertView == null){
             //Crear nuestro layout que representa una fila en la lista
@@ -31,14 +32,31 @@ public class Restaurant_Adapter extends ArrayAdapter<Restaurant_class> {
             LayoutInflater lInflator = ((Activity) context).getLayoutInflater();
             convertView = lInflator.inflate(resource, parent, false);
         }
-
         imageView = convertView.findViewById(R.id.ivResLay);
         txtNombre = convertView.findViewById(R.id.txt_nombre);
         txtDesc = convertView.findViewById(R.id.txt_descripcion);
         textDirYTel = convertView.findViewById(R.id.txt_dirYtel);
-        estrellas = convertView.findViewById(R.id.txt_dirYtel);
+        //estrellas = convertView.findViewById(R.id.txt_dirYtel);
 
-        imageView.setImageResource(restaurantes[position].getImagen());
+        imagen = restaurantes[position].getImagen();
+        //Toast.makeText(getContext(),restaurantes[position].getImagen()+"",Toast.LENGTH_LONG).show();
+        switch (imagen){
+            case(0):
+                imageView.setImageResource(R.drawable.a1);
+                break;
+            case(1):
+                imageView.setImageResource(R.drawable.a2);
+                break;
+            case(2):
+                imageView.setImageResource(R.drawable.a3);
+                break;
+            case(3):
+                imageView.setImageResource(R.drawable.a4);
+                break;
+            default:
+                imageView.setImageResource(R.drawable.a5);
+                break;
+        }
         txtNombre.setText(restaurantes[position].getNombre());
         txtDesc.setText(restaurantes[position].getDescripcion());
         textDirYTel.setText(restaurantes[position].getDirYTel());

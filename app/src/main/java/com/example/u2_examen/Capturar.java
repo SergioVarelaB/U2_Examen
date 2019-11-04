@@ -7,29 +7,19 @@ import android.os.Bundle;
 import android.sax.StartElementListener;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class Capturar extends AppCompatActivity {
+    EditText etName,etDescripcion, etDirYTel;
     ImageView ivImagen;
-    Intent intento;
+    Intent intento , inDatos;
     Button btn;
     int imagen = R.drawable.a2;
-    public ArrayList<Restaurant_class> resta = new ArrayList<>();
-    public Capturar(){
-        resta.add(new Restaurant_class());
-        resta.add(new Restaurant_class(R.drawable.a2, "on the Bridge", "cena bajo un puente", "Juan escutia, 5501232"));
-        resta.add(new Restaurant_class(R.drawable.a3, "Sushi kito", "comida japonesa/peruana", "Periferico, 5501432"));
-        resta.add(new Restaurant_class(R.drawable.a4, "El Hormigero", "coma como oso hormigero","Calle degollado, 5501232"));
-        resta.add(new Restaurant_class(R.drawable.a5, "on the Bridge", "cena bajo un puente", "Calle 12, 5501232"));
-        resta.add(new Restaurant_class(R.drawable.a1, "Sushi kito", "comida japonesa/peruana", "Calle Vicente Guerrero, 5501232"));
-    }
-    public ArrayList<Restaurant_class> getResta() {
-        return resta;
-    }
-
+    int imagenMandar = 0;
     private static final int SECOND_ACTIVITY_REQUEST_CODE = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +28,10 @@ public class Capturar extends AppCompatActivity {
         intento = new Intent(this,Seleccion.class);
         btn = findViewById(R.id.btnGuardar);
         ivImagen = findViewById(R.id.ivImagen);
+        etName = findViewById(R.id.etNombre);
+        etDescripcion = findViewById(R.id.etDescripcion);
+        etDirYTel = findViewById(R.id.etDirYTel);
+        inDatos = new Intent(getApplicationContext(),Mostrar.class);
         ivImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,8 +41,11 @@ public class Capturar extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                agregarRestaurant(R.id.ivImagen,"juan","hola", "direccion y telefono");
-                //Toast.makeText(getApplicationContext(),"" + imagen,Toast.LENGTH_LONG).show();
+                if(etName.getText().toString() != "" && etDescripcion.getText().toString() != "" && etDirYTel.getText().toString() != "" ){
+                    agregarRestaurant();
+                }else{
+                    Toast.makeText(getApplicationContext(),"ingrese un dato",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -61,15 +58,34 @@ public class Capturar extends AppCompatActivity {
                 // Get String data from Intent
                 String returnString = data.getStringExtra("keyName");
                 imagen = data.getIntExtra("imagen",R.drawable.a1);
+                switch(imagen){
+                    case(R.drawable.a2):
+                        imagenMandar = 1;
+                        break;
+                    case(R.drawable.a3):
+                        imagenMandar = 2;
+                        break;
+                    case(R.drawable.a4):
+                        imagenMandar = 3;
+                        break;
+                    default:
+                        imagenMandar = 4;
+                        break;
+                }
                 // Set text view with string
                 ivImagen = findViewById(R.id.ivImagen);
                 ivImagen.setImageResource(imagen);
             }
         }
     }
-    public void agregarRestaurant(int imagen, String nombre, String descripcion, String dirYtel){
-        resta.add(new Restaurant_class(imagen, nombre , descripcion, dirYtel));
-        Toast.makeText(getApplicationContext(),resta+"",Toast.LENGTH_LONG).show();
+    public void agregarRestaurant(){
+        Bundle bundle = new Bundle();
+        bundle.putString("nombre",etName.getText().toString());
+        bundle.putString("descripcion",etDescripcion.getText().toString());
+        bundle.putString("dirYtel",etDirYTel.getText().toString());
+        bundle.putInt("imagen",imagenMandar);
+        inDatos.putExtras(bundle);
+        startActivity(inDatos);
     }
 
 }

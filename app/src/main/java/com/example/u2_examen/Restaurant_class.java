@@ -7,7 +7,7 @@ public class Restaurant_class{
     private String dirYTel;
 
     public Restaurant_class(){
-        imagen = R.drawable.a1;
+        imagen = R.drawable.a2;
         nombre = "Golden bridge";
         descripcion = "El infierno";
         dirYTel = "Calle Degollado, 5750229";
@@ -19,7 +19,6 @@ public class Restaurant_class{
         this.descripcion = descripcion;
         this.dirYTel = dirYTel;
     }
-
 
     public int getImagen() {
         return imagen;

@@ -7,16 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".Mostrar">
 
-    <Button
-        android:id="@+id/btnAgregar"
-        android:layout_width="390dp"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
     <ListView
         android:id="@+id/listaRestaurants"
         android:layout_width="match_parent"
-        android:layout_height="582dp">
+        android:layout_height="match_parent">
 
     </ListView>
 
